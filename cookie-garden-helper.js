@@ -138,6 +138,10 @@ class Garden {
     if (plant.weed && config.autoHarvestWeeds) {
       this.harvest(x, y);
     }
+    if (!plant.unlocked) {
+      // [aalexx-S] Don't harvest locked plant for easier mutation
+      return
+    }
     let [seedId, age] = config.savedPlot[y][x];
     seedId--;
     if (config.autoHarvestCleanGarden &&
