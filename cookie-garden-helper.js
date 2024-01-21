@@ -76,7 +76,8 @@ class Garden {
       for (let y=0; y<6; y++) {
         let [seedId, age] = plot[x][y];
         let plant = this.getPlant(seedId);
-        if (plant != undefined && !plant.plantable) {
+        // [aalexx-S] Don't save locked seeds for easy mutation. Those new seeds are usually not in optimal positions and we don't want to replant them.
+        if (plant != undefined && (!plant.plantable || !plant.unlocked)) {
           plot[x][y] = [0, 0];
         }
       }
