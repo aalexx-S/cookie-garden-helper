@@ -284,7 +284,7 @@ class UI {
       </p>
       <p>
         ${this.button('savePlot', 'Save plot',
-          'Save the current plot; these seeds will be replanted later')}
+          'Save the current plot (without unplantable/locked seeds); these seeds will be replanted later')}
         ${this.labelWithState('plotIsSaved', 'No saved plot', 'Plot saved',
           Boolean(config.savedPlot.length))}
       </p>
